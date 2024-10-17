@@ -1,5 +1,7 @@
 "use client";
 
+// import { signIn } from "next-auth/react";
+import { oauthSigninButton } from "@/actions/oauth-signin-button";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
@@ -14,9 +16,23 @@ export const OAuthSigninButton = ({
   Signup = false,
 }: OAuthSigninButtonProps) => {
   const text = Signup ? "Sign up" : "Sign in";
+
+  const handleClick = async (provider: "google" | "github") => {
+    try {
+      await oauthSigninButton(provider);
+    } catch (error) {
+      console.error("Failed to sign in", error);
+    }
+  };
   return (
     <div className="space-y-4">
-      <Button type="button" variant="outline" size="lg" className="w-full">
+      <Button
+        type="button"
+        variant="outline"
+        size="lg"
+        className="w-full"
+        onClick={() => handleClick("github")}
+      >
         <FaGithub className="mr-2 size-4" />
         <span>{text} with Github</span>
       </Button>

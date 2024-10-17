@@ -3,13 +3,15 @@ import Link from "next/link";
 import { auth } from "@/auth";
 
 import { cn } from "@/lib/utils";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+
+import { NavSignOutUserHeader } from "./nav-signout-user-header";
 
 export const MainNavHeader = async () => {
   const session = await auth();
   return (
     <nav className="flex items-center gap-x-4">
-      {session ? <NavSignOut /> : <NavUserMenu />}
+      {session ? <NavSignOutUserHeader /> : <NavUserMenu />}
     </nav>
   );
 };
@@ -35,18 +37,6 @@ const NavUserMenu = () => {
         >
           Sign up
         </Link>
-      </li>
-    </ul>
-  );
-};
-
-const NavSignOut = () => {
-  return (
-    <ul className="flex items-center gap-x-2">
-      <li>
-        <Button variant="default" size="sm" type="button">
-          Sign out
-        </Button>
       </li>
     </ul>
   );
