@@ -36,7 +36,13 @@ export const OAuthSigninButton = ({
         <FaGithub className="mr-2 size-4" />
         <span>{text} with Github</span>
       </Button>
-      <Button type="button" variant="outline" size="lg" className="w-full">
+      <Button
+        type="button"
+        variant="outline"
+        size="lg"
+        className="w-full"
+        onClick={() => handleClick("google")}
+      >
         <FcGoogle className="mr-2 size-4" />
         <span>{text} with Google</span>
       </Button>
