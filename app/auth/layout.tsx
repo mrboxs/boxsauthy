@@ -1,5 +1,12 @@
+import { AuthHeaderPage } from "./_components/header/auth-header";
+
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
-  return <>{children}</>;
+  return (
+    <>
+      <AuthHeaderPage />
+      {children}
+    </>
+  );
 };
 
 export default AuthLayout;

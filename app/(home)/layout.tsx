@@ -1,5 +1,12 @@
+import { SiteHeader } from "./_components/header";
+
 const HomeLayout = ({ children }: { children: React.ReactNode }) => {
-  return <>{children}</>;
+  return (
+    <>
+      <SiteHeader />
+      {children}
+    </>
+  );
 };
 
 export default HomeLayout;
