@@ -11,7 +11,7 @@ export default {
       }
 
       if (user) {
-        token.sub = user.id;
+        token.id = user.id;
         token.role = user.role;
         token.username = user.username;
         token.verified = user.verified;
